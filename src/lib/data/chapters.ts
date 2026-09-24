@@ -569,12 +569,16 @@ git commit -m "Start field notes"</code></pre>`,
 	}
 ];
 
-export const BOOK_URL = 'https://claude.ai/artifact/SJnvHnQFpH9VWXKgPAG4zM';
-export const SITE_URL = 'https://claude.ai/artifact/QPNXYMofhvnH7evVWodxdC';
+export const SITE_URL = 'https://strata.theether.in';
+/** The book as a PDF, served beside the site. */
+export const BOOK_URL = `${SITE_URL}/The-Missing-Context.pdf`;
+/** The living document the PDF is made from. */
+export const BOOK_DOC_URL = 'https://claude.ai/artifact/SJnvHnQFpH9VWXKgPAG4zM';
 export const FEEDBACK_EMAIL = 'meenashivam9650@gmail.com';
-const HEADINGS: Record<number, string> = { 1: '1908', 2: '4255', 3: '7008', 4: '10037', 5: '41975', 6: '12860', 7: '16081', 8: '19374', 9: '22363', 10: '25298', 11: '28901', 12: '48328', 13: '51098' };
-/** Link into the book at a chapter's heading. */
-export const bookLink = (n: number) => `${BOOK_URL}#mc1yamkhafj.${HEADINGS[n]}`;
+/** First page of each chapter in the PDF (from its outline). */
+const PAGES: Record<number, number> = { 1: 8, 2: 11, 3: 14, 4: 19, 5: 22, 6: 26, 7: 31, 8: 35, 9: 39, 10: 43, 11: 47, 12: 50, 13: 54 };
+/** Open the PDF at a chapter's first page. */
+export const bookLink = (n: number) => `${BOOK_URL}#page=${PAGES[n]}`;
 
 /* ---------- answer checking ---------- */
 function norm(s: string) {

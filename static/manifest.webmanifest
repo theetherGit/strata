@@ -1,0 +1,14 @@
+{
+  "name": "Neha's stratigraphic column",
+  "short_name": "Strata",
+  "description": "Assessments, playgrounds and labs for The Missing Context: How Computers Actually Work.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#edefea",
+  "theme_color": "#12312a",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

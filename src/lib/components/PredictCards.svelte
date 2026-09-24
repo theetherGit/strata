@@ -6,8 +6,11 @@
 
 	export type PCard = { code: string; answer: string; accept?: string[]; e: string };
 	let { cards, onreveal }: { cards: PCard[]; onreveal?: (i: number, ok: boolean) => void } = $props();
-	let guesses = $derived<string[]>(cards.map(() => ''));
-	let shown = $derived<boolean[]>(cards.map(() => false));
+	// The cards are fixed for the life of the component; these arrays are mutated by index as she plays, so they must be $state.
+	// svelte-ignore state_referenced_locally
+	let guesses = $state<string[]>(cards.map(() => ''));
+	// svelte-ignore state_referenced_locally
+	let shown = $state<boolean[]>(cards.map(() => false));
 	const norm = (s: string) => s.trim().replace(/^["']|["']$/g, '').toLowerCase();
 	const ok = (i: number) => [cards[i].answer, ...(cards[i].accept ?? [])].some((a) => norm(a) === norm(guesses[i]));
 	function reveal(i: number) {
